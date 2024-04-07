@@ -1,0 +1,131 @@
+------------- BETTER USAGE ------------
+
+@bot.message_handler(content_types=['photo'])
+def get_photo(message):
+    markup = types.InlineKeyboardMarkup()
+    markup.add(types.InlineKeyboardButton('Go to the web-site', url='https://docs.sqlalchemy.org/en/20/intro.html'))
+    markup.add(types.InlineKeyboardButton('Delete the photo', callback_data='delete'))
+    markup.add(types.InlineKeyboardButton('Change the photo', callback_data='edit'))
+    bot.send_message(message.chat.id, 'You can use on of these commands', reply_markup=markup)
+
+
+@bot.message_handler(content_types=['photo'])
+def get_photo(message):
+    markup = types.InlineKeyboardMarkup()
+    btn1 = types.InlineKeyboardButton('Go to the web-site', url='https://docs.sqlalchemy.org/en/20/intro.html')
+    btn2 = types.InlineKeyboardButton('Delete the photo', callback_data='delete')
+    btn3 = types.InlineKeyboardButton('Change the photo', callback_data='edit')
+    markup.add(btn1)
+    markup.row(btn2, btn3)
+    bot.send_message(message.chat.id, 'You can use on of these commands', reply_markup=markup)
+
+
+
+@bot.message_handler(content_types=['photo'])
+def get_photo(message):
+    markup = types.InlineKeyboardMarkup()
+    btn1 = types.InlineKeyboardButton('Go to the web-site', url='https://docs.sqlalchemy.org/en/20/intro.html')
+    btn2 = types.InlineKeyboardButton('Delete the photo', callback_data='delete')
+    btn3 = types.InlineKeyboardButton('Change the photo', callback_data='edit')
+    markup.add(btn1)
+    # markup.row(btn1) second one¡
+    markup.row(btn2, btn3)
+    bot.send_message(message.chat.id, 'You can use on of these commands', reply_markup=markup)
+
+
+OLD FUNCTIONS
+@bot.message_handler(commands=['buttons'])
+def get_buttonns(message):
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    button = types.KeyboardButton('Кнопка')
+    markup.add(button)
+    bot.send_message(message.chat.id, 'Кнопки', reply_markup=markup)
+
+
+@bot.message_handler(commands=['menu'])
+def assistance_menu(message):
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    button1 = types.KeyboardButton('/start')
+    button2 = types.KeyboardButton('/help')
+    button3 = types.KeyboardButton('/buttons')
+    markup.add(button1, button2, button3)
+    bot.send_message(message.chat.id, 'Все команды', reply_markup=markup)
+
+
+
+
+bot.send_photo(message.chat.id, file, 'Welcome to our Telegram Bot <b>BookStore</b>', reply_markup=markup, parse_mode='html')
+bot.send_video(message.chat.id, file, 'Welcome to our Telegram Bot <b>BookStore</b>', reply_markup=markup, parse_mode='html')
+bot.send_audio(message.chat.id, file, 'Welcome to our Telegram Bot <b>BookStore</b>', reply_markup=markup, parse_mode='html')
+
+
+
+
+# bot.polling(non_stop=True)
+
+
+
+
+----- 2 -----
+
+# @bot.message_handler(commands=['buttons'])
+# def get_buttonns(message):
+#     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+#     button = types.KeyboardButton('Кнопка')
+#     markup.add(button)
+#     bot.send_message(message.chat.id, 'Кнопки', reply_markup=markup)
+
+
+
+
+
+# @bot.message_handler(content_types=['photo'])
+# def get_photo(message):
+#     markup = types.InlineKeyboardMarkup()
+#     btn1 = types.InlineKeyboardButton('Go to the web-site', url='https://docs.sqlalchemy.org/en/20/intro.html')
+#     markup.add(btn1)
+#     btn2 = types.InlineKeyboardButton('Delete the photo', callback_data='delete')
+#     btn3 = types.InlineKeyboardButton('Change the photo', callback_data='edit')
+#     markup.row(btn2, btn3)
+#     bot.send_message(message.chat.id, 'You can use on of these commands', reply_markup=markup)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+|| TEMPORALILY
+
+
+@bot.message_handler(content_types=['photo'])
+def remove_background(message):
+    # Assuming you have a function named 'remove' that takes an image and returns the processed image
+    input_photo = message.photo[-1].file_id  # Get the file_id of the photo
+    file_info = bot.get_file(input_photo)    # Get file information
+    downloaded_file = bot.download_file(file_info.file_path)  # Download the photo
+
+    input_path = 'input_photo.jpg'  # Save the photo locally
+    with open(input_path, 'wb') as new_file:
+        new_file.write(downloaded_file)
+
+    output_path = 'output_1.png'
+    input_image = Image.open(input_path)
+    output_image = remove(input_image)  # Assuming 'remove' is your function to remove background
+    output_image.save(output_path)
+
+    # Send the processed image
+    with open(output_path, 'rb') as photo:
+        bot.send_photo(message.chat.id, photo, caption="Here's your photo")
+    with open(output_path, 'rb') as document:
+        bot.send_document(message.chat.id, document, caption="Here's your photo")
