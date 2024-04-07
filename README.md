@@ -1,6 +1,6 @@
 # Telegram Bot for BgRemover
 
-[![python](https://img.shields.io/badge/python-3.11_slim-blue?style=flat-square)](https://www.python.org/)
+[![python](https://img.shields.io/badge/python-3.11-blue?style=flat-square)](https://www.python.org/)
 [![Telegram Bot](https://img.shields.io/badge/Telegram-Bot-blue?style=flat-square)](https://github.com/python-telegram-bot/python-telegram-bot)
 
 Telegram Bot for BgRemover is a Python project aimed at building a server-side service for Telegram users. This project utilizes the TeleBot library to create a Telegram bot with various functionalities tailored for user interaction.
@@ -21,14 +21,14 @@ The project consists of two main modules: `COUNT_MANAGER.PY` and `MAIN.PY`. `COU
 
 ## Usage
 
-1. Navigate into the cloned directory: "git clone https://github.com/SaidisIam/BgRemover-Bot.git"
+1. Navigate into the cloned directory: `git clone https://github.com/SaidisIam/BgRemover-Bot.git`
 2. Navigate into the cloned directory: `cd BgRemover-Bot`
 2. Create an environment file by running the following command: `python -m venv env` 
 3. Run this command to activate your virtual environment: `source ./env/bin/activate`
-3. Create the necessary folders: "mkdir media", "mkdir media/inputs", "mkdir media/outputs"
-4. Create the `conf.py` file with your Telegram bot token: "touch conf.py", Add the following line to `conf.py` and replace `"YOUR_TOKEN"` with your actual Telegram bot token: TOKEN = "YOUR_TOKEN"
-4. To install the required dependencies, simply execute: "pip install -r requirements.txt"
-5. Run the Telegram bot server using the appropriate wiht command "python main.py"
+3. Create the necessary folders: `mkdir media`, `mkdir media/inputs`, `mkdir media/outputs`
+4. Create the `conf.py` file with your Telegram bot token: `touch conf.py`, Add the following line to `conf.py` and replace `"YOUR_TOKEN"` with your actual Telegram bot token: TOKEN = "YOUR_TOKEN"
+4. To install the required dependencies, simply execute: `pip install -r requirements.txt`
+5. Run the Telegram bot server using the appropriate wiht command`python main.py`
 6. Interact with the Telegram bot using your Telegram client, and utilize various commands provided by the bot.
 
 ## Contribution
