@@ -26,7 +26,7 @@ The project consists of two main modules: `COUNT_MANAGER.PY` and `MAIN.PY`. `COU
 2. Create an environment file by running the following command: `python -m venv env` 
 3. Run this command to activate your virtual environment: `source ./env/bin/activate`
 3. Create the necessary folders: `mkdir media`, `mkdir media/inputs`, `mkdir media/outputs`
-4. Create the `conf.py` file with your Telegram bot token: `touch conf.py`, Add the following line to `conf.py` and replace `"YOUR_TOKEN"` with your actual Telegram bot token: TOKEN = "YOUR_TOKEN"
+4. Create the "conf.py" file with your Telegram bot token: `touch conf.py`, Add the following line to "conf.py" and replace "YOUR_TOKEN" with your actual Telegram bot token: TOKEN = "YOUR_TOKEN"
 4. To install the required dependencies, simply execute: `pip install -r requirements.txt`
 5. Run the Telegram bot server using the appropriate wiht command`python main.py`
 6. Interact with the Telegram bot using your Telegram client, and utilize various commands provided by the bot.
